@@ -8,7 +8,8 @@ class InstaBot:
     def __init__(self, username, password):
         self.username = username
         self.password = password
-        self.driver = webdriver.Firefox(executable_path="C:/Users/joset/IdeaProjects/bot_comentarios_instagram-master/geckodriver.exe")
+        self.driver = webdriver.Firefox(
+            executable_path="C:/Users/joset/IdeaProjects/bot_comentarios_instagram-master/geckodriver.exe")
 
     def login(self):
         driver = self.driver
@@ -24,7 +25,7 @@ class InstaBot:
         time.sleep(3)
         password_element.send_keys(Keys.RETURN)
         time.sleep(5)
-        self.comente_nas_fotos_com_a_hashtag("calisteniabrasil")
+        self.comente_nas_fotos_com_a_hashtag("MinhaHashtag")
         # Altere aqui para a hashtag que você deseja usar.
 
     @staticmethod
@@ -73,12 +74,12 @@ class InstaBot:
                     random.choice(comments), comment_input_box)
                 time.sleep(random.randint(3, 5))
                 driver.find_element_by_xpath("//button[contains(text(), 'Publicar')]"
-                ).click()
+                                             ).click()
                 time.sleep(random.randint(3, 5))
             except Exception as e:
                 print(e)
                 time.sleep(5)
 
 
-JoseTabosaBot = InstaBot('SeuUsuario', 'SeuSenha')
+JoseTabosaBot = InstaBot('MeuUsuario', 'MinhaSenha')
 JoseTabosaBot.login()
